@@ -5,6 +5,7 @@ Running: C:/xlinx/2025.1/Vivado/bin/unwrapped/win64.o/xelab.exe --incr --debug t
 Using 2 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 29 differs from formal bit length 30 for port 'display' [C:/Users/Delia/Desktop/ECE2029/FinalProject/FinalProject.srcs/sim_1/new/BigCalcSim.v:42]
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
@@ -14,6 +15,9 @@ Compiling module xil_defaultlib.FullAdd
 Compiling module xil_defaultlib.AdderModule
 Compiling module xil_defaultlib.DividerModule
 Compiling module xil_defaultlib.CalculatorMain
+Compiling module xil_defaultlib.DigitSplitter
+Compiling module xil_defaultlib.DisplayCreator
+Compiling module xil_defaultlib.DisplayMain
 Compiling module xil_defaultlib.BigCalcSim
 Compiling module xil_defaultlib.glbl
 Built simulation snapshot BigCalcSim_behav

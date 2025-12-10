@@ -30,18 +30,16 @@ module BigCalcSim(
     reg [1:0] operator;
     reg clock = 0;
     reg reset = 0;
-    wire [3:0] solution;
-    wire carryOut;
+    wire [28:0] display;
     
-    CalculatorMain dut (
-        .A(A),
-        .B(B),
+    DisplayMain dut (
+        .digit1(A),
+        .digit2(B),
         .carryIn(carryIn),
         .operator(operator),
         .clock(clock),
         .reset(reset),
-        .solution(solution),
-        .carryOut(carryOut)
+        .display(display)
     );
     
     // Clock generation

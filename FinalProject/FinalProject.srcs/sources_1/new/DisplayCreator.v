@@ -24,7 +24,7 @@ module DisplayCreator(
     
     input  [3:0] bcdIn,
     output [14:0] signalOut   
-    
+
     );
     
     reg [14:0] result;
