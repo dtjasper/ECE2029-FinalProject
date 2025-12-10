@@ -77,26 +77,26 @@ module CalculatorMain(
 
     // OUTPUT LOGIC (combinational or synchronous - choose here)
     always @(*) begin
-        case (state)
+        case (next_state)
             addition: begin
-                solution <= sum;
-                carryOut <= addCarry;
+                solution = sum;
+                carryOut = addCarry;
             end
             subtraction: begin
-                solution <= diff;
-                carryOut <= subCarry;
+                solution = diff;
+                carryOut = subCarry;
             end
             multiplication: begin
-                solution <= prod;
-                carryOut <= multCarry;
+                solution = prod;
+                carryOut = multCarry;
             end
             division: begin
                 solution = quot;
-                carryOut <= divCarry;
+                carryOut = divCarry;
             end
             default: begin
-                solution <= 0;
-                carryOut <= 0;
+                solution = 0;
+                carryOut = 0;
             end
         endcase
     end
