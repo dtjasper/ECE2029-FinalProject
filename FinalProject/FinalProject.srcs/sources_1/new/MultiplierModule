@@ -27,8 +27,8 @@ module MultiplierModule(
     output [7:0] product,
     output carryOut
     ); 
-    localparam [10:0]sums,carry0;
-    wire c0, c1, c2,c3,c4,c5,c6,c7,c8,c9,c10; // temporary carries
+    localparam [11:0]sums;
+    wire c0, c1, c2,c3,c4,c5,c6,c7,c8,c9,c10,c11; // temporary carries
     assign product[0]=A[0]&B[0];
     
     HalfAdder HA0 (
@@ -94,5 +94,28 @@ assign product[3]=sum[4];
         .carryOut(c8)
     );
   assign product[4]=sum[7];
-    
+ FullAdd fa4 (
+        .A(c6), 
+        .B((A[3]&B[2])), 
+        .carryIn(c4), 
+        .sum(sum[8]), 
+        .carryOut(c9)
+    );
+  FullAdd fa5 (
+        .A(sum[8]), 
+        .B((A[2]&B[3])), 
+        .carryIn(c8), 
+        .sum(sum[9]), 
+        .carryOut(c10)
+    );
+    assign product[5]=sum[9];
+FullAdd fa6 (
+        .A(c9), 
+        .B((A[3]&B[3])), 
+        .carryIn(c10), 
+        .sum(sum[9]), 
+        .carryOut(c11)
+    );
+    assign product[6]=sum[10];
+    assign product[7]=c11;
 endmodule
