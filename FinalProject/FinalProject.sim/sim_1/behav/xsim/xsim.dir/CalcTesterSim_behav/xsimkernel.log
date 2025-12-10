@@ -1,4 +1,7 @@
-Running: xsim.dir/CalcTesterSim_behav/xsimk.exe -simmode gui -wdb CalcTesterSim_behav.wdb -simrunnum 0 -socket 64903
+Running: xsim.dir/CalcTesterSim_behav/xsimk.exe -simmode gui -wdb CalcTesterSim_behav.wdb -simrunnum 0 -socket 59957
 Design successfully loaded
-Design Loading Memory Usage: 10832 KB (Peak: 10832 KB)
-Design Loading CPU Usage: 15 ms
+Design Loading Memory Usage: 10848 KB (Peak: 10848 KB)
+Design Loading CPU Usage: 0 ms
+Simulation completed
+Simulation Memory Usage: 12076 KB (Peak: 12076 KB)
+Simulation CPU Usage: 46 ms

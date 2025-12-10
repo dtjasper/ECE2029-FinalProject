@@ -1,0 +1,13 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  --include "../../../../../../../../../xlinx/2025.1/Vivado/data/rsb/busdef" \
+"../../../../FinalProject.srcs/sources_1/new/AdderModule.v" \
+"../../../../FinalProject.srcs/sources_1/new/CalculatorMain.v" \
+"../../../../FinalProject.srcs/sources_1/new/DividerModule.v" \
+"../../../../FinalProject.srcs/sources_1/new/FullAdd.v" \
+"../../../../FinalProject.srcs/sim_1/new/BigCalcSim.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

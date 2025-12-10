@@ -24,7 +24,7 @@ module DividerModule(
     input  wire [3:0] dividend,   // A
     input  wire [3:0] divisor,    // B
     output reg  [3:0] quotient,
-    output reg  [3:0] remainder
+    output reg remainder
     );
     
    
@@ -51,7 +51,8 @@ module DividerModule(
                     quotient = (quotient << 1);
                 end
             end
-            remainder = temp[7:4];
+            // remainder is high if there is one
+            remainder = 0;
         end
     end
 endmodule
