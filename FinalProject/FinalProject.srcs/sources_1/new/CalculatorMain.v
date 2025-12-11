@@ -32,6 +32,7 @@ module CalculatorMain(
     );
     
     wire [3:0] sum, diff, prod, quot;
+
     wire addCarry, subCarry, multCarry, divCarry;
 
     reg [1:0] state, next_state;
@@ -46,12 +47,26 @@ module CalculatorMain(
     AdderModule additionOperator (
         .A(A), 
         .B(B), 
-        .carryIn(carryIn), 
+        .carryIn(0), 
         .sum(sum), 
         .carryOut(addCarry)
     );
     
-    // ADD OTHER MODULES
+    AdderModule subtractionOperator (
+        .A(A), 
+        .B(B), 
+        .carryIn(1), 
+        .sum(diff), 
+        .carryOut(subCarry)
+    );
+    
+    MultiplierModule multiplierOperator (
+        .A(A), 
+        .B(B), 
+        .carryIn(carryIn),
+        .product(prod), 
+        .carryOut(multCarry)
+    );
     
     DividerModule dividerOperator (
         .dividend(A), 
@@ -64,18 +79,17 @@ module CalculatorMain(
     always @(*) begin
         next_state = operator;
     end
-
     // STATE REGISTER (sequential)
     always @(posedge clock or posedge reset) begin
         if (reset) begin
             state <= addition; 
             solution <= 0;
             carryOut <= 0;
-        end else
+        end else 
             state <= next_state;
     end
 
-    // OUTPUT LOGIC (combinational or synchronous - choose here)
+    // OUTPUT LOGIC 
     always @(*) begin
         case (next_state)
             addition: begin

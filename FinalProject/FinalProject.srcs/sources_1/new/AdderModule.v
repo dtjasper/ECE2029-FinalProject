@@ -27,37 +27,44 @@ module AdderModule(
     output [3:0] sum,
     output carryOut
     ); 
+    
+    wire [3:0] l;
+    
+    assign l[0] = B[0] ^ carryIn;
+    assign l[1] = B[1] ^ carryIn;
+    assign l[2] = B[2] ^ carryIn;
+    assign l[3] = B[3] ^ carryIn;
 
-    wire c0, c1, c2; // temporary carries
+    wire c1, c2, c3; // temporary carries
 
     FullAdd fa0 (
         .A(A[0]), 
-        .B(B[0]), 
+        .B(l[0]), 
         .carryIn(carryIn), 
         .sum(sum[0]), 
-        .carryOut(c0)
+        .carryOut(c1)
     );
 
     FullAdd fa1 (
         .A(A[1]), 
-        .B(B[1]), 
-        .carryIn(c0), 
+        .B(l[1]), 
+        .carryIn(c1), 
         .sum(sum[1]), 
-        .carryOut(c1)
+        .carryOut(c2)
     );
 
     FullAdd fa2 (
         .A(A[2]), 
-        .B(B[2]), 
-        .carryIn(c1), 
+        .B(l[2]), 
+        .carryIn(c2), 
         .sum(sum[2]), 
-        .carryOut(c2)
+        .carryOut(c3)
     );
 
     FullAdd fa3 (
         .A(A[3]), 
-        .B(B[3]), 
-        .carryIn(c2), 
+        .B(l[3]), 
+        .carryIn(c3), 
         .sum(sum[3]), 
         .carryOut(carryOut)
     );

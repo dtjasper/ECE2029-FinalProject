@@ -1,7 +1,7 @@
-Running: xsim.dir/BigCalcSim_behav/xsimk.exe -simmode gui -wdb BigCalcSim_behav.wdb -simrunnum 0 -socket 65081
+Running: xsim.dir/BigCalcSim_behav/xsimk.exe -simmode gui -wdb BigCalcSim_behav.wdb -simrunnum 0 -socket 50357
 Design successfully loaded
-Design Loading Memory Usage: 10856 KB (Peak: 10856 KB)
-Design Loading CPU Usage: 30 ms
+Design Loading Memory Usage: 10924 KB (Peak: 10924 KB)
+Design Loading CPU Usage: 15 ms
 Simulation completed
-Simulation Memory Usage: 12176 KB (Peak: 12176 KB)
-Simulation CPU Usage: 77 ms
+Simulation Memory Usage: 12136 KB (Peak: 12136 KB)
+Simulation CPU Usage: 62 ms

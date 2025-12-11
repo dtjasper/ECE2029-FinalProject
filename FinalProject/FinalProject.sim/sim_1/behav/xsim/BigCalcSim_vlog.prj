@@ -6,6 +6,7 @@ verilog xil_defaultlib  --include "../../../../../../../../../xlinx/2025.1/Vivad
 "../../../../FinalProject.srcs/sources_1/new/DisplayMain.v" \
 "../../../../FinalProject.srcs/sources_1/new/DividerModule.v" \
 "../../../../FinalProject.srcs/sources_1/new/FullAdd.v" \
+"../../../../FinalProject.srcs/sources_1/new/MultiplierModule.v" \
 "../../../../FinalProject.srcs/sim_1/new/BigCalcSim.v" \
 
 # compile glbl module

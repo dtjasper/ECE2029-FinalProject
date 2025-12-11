@@ -45,6 +45,7 @@ module DisplayMain(
     input [1:0] operator,
     input clock,
     input reset,
+    output reg [3:0] sol,
     output reg [29:0] display
     );
     
@@ -87,7 +88,9 @@ module DisplayMain(
     
     always @(*) begin
         display = {tensLEDDisp, onesLEDDisp};
+        sol = solution;
     end
+    
     
     
 endmodule

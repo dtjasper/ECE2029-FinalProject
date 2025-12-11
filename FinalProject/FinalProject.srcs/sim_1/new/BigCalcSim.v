@@ -32,6 +32,8 @@ module BigCalcSim(
     reg reset = 0;
     wire [28:0] display;
     
+    wire [3:0] s;
+    
     DisplayMain dut (
         .digit1(A),
         .digit2(B),
@@ -39,6 +41,7 @@ module BigCalcSim(
         .operator(operator),
         .clock(clock),
         .reset(reset),
+        .sol(s),
         .display(display)
     );
     
@@ -52,7 +55,7 @@ module BigCalcSim(
     initial begin
         reset = 1;    // assert reset at t=0
         #10;
-        reset = 0;    // deassert after the first rising edge
+        reset = 0;
     end
     
     
@@ -66,12 +69,22 @@ module BigCalcSim(
         #10;
         @(posedge clock);
         A=4'b1001;B=4'b0011;carryIn=0;operator=2'b11;
+        
         @(posedge clock);
         A=4'b0100;B=4'b0100;carryIn=0;operator=2'b00;
         
-        @(posedge clock);A=4'b0100;B=4'b0100;carryIn=0;operator=2'b11;
+        @(posedge clock);
+        A=4'b0100;B=4'b0100;carryIn=0;operator=2'b11;
         
-        @(posedge clock); A=4'b0110;B=4'b0011;carryIn=0;operator=2'b11;
+        @(posedge clock); 
+        A=4'b0110;B=4'b0011;carryIn=0;operator=2'b11;
+        
+        @(posedge clock);
+        A=4'b1000;B=4'b0100;carryIn=0;operator=2'b01;
+        
+        @(posedge clock); 
+        A=4'b0010;B=4'b0011;carryIn=0;operator=2'b10;
+        
         #10;     
     end
    
